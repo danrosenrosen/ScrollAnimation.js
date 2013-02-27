@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="lib/Rint.ScrollAnimation.js"></script>
+</head>
+<body>
+    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
+    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
+    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
+    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
+    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
+    <style> h1 { position: relative; } </style>
+    <script>
+        var scrollAnimation = new Rint.ScrollAnimation({
+            from: 0, to: 1000,
+            onprogress: function (value) {
+                $('h1').css('left', 1000 * value)
+            }
+        });
+    </script>
+</body>
+</html>
