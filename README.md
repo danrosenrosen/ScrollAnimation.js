@@ -1,6 +1,6 @@
 #Rint.ScrollAnimtaion
 
-`Rint.ScrollAnimtaion` is scroll animation helper. dependencies with jQuery Library.
+`ScrollAnimtaion` is scroll animation helper. dependencies with jQuery Library.
 
 ```html
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -9,73 +9,42 @@
 
 #Basic Use
 ```html
-<body>
-    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
-    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
-    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
-    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
-    <h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1><h1>AAA</h1>
-    <style>
-      h1 { position: relative; }
-    </style>
-    <script>
-        var scrollAnimation = new Rint.ScrollAnimation({
-            from: 0,
-            to: 1000,
-            onprogress: function (value) {
-                $('h1').css('left', 1000 * value)
-            }
-        });
-    </script>
-</body>
+<div class="row">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
 ```
 
 #event
 ```javascript
-var scrollAnimation = new Rint.ScrollAnimation({
-    from: 0, to: 1000,
-    onprogress: function (/* from 0 to 1*/value) { }
+ScrollAnimation.create('rotateX', 0, 400, function (value) {
+    $('.row').css('transform', createRotateTransform(x = value));
+});
+
+ScrollAnimation.create('rotateZ', 100, 700, function (value) {
+    $('.row').css('transform', createRotateTransform(z = value));
+});
+
+ScrollAnimation.create('rotateY', 400, 800, function (value) {
+    $('.row').css('transform', createRotateTransform(y = value));
+});
+
+ScrollAnimation.create('radius', 0, 800, function (value) {
+    $('.row').css('transform', createRotateTransform());
+});
+
+ScrollAnimation.create('circle', 0, 800, function (value) {
+    $('.box').css({
+        background: createColor(),
+        transform: 'rotateY(' + value * 720 + 'deg)'
+    });
 });
 ```
-```javascript
-var scrollAnimation = new Rint.ScrollAnimation({ from: 0, to: 1000 });
-scrollAnimation.setOnProgressListener(function (value) { })
-```
-
-#import Method
-Rint.ScrollAnimataion.import() method
-
-```javascript
-Rint.ScrollAnimation.import();
-
-new ScrollAnimtaion({
-  from: 0,
-  to: 1000,
-  onprogress: function (value) {
-    console.log(value);
-  }
-});
-```
-
 #Static method
 
 ```javascript
-Rint.ScrollAnimation.play('slow')
-Rint.ScrollAnimation.play('normal')
-Rint.ScrollAnimation.play('fast')
-Rint.ScrollAnimation.play(/* Distance per Frame */2)
-```
-
-#Instance method
-```javascript
-var scrollAnimation = new Rint.ScrollAnimation({
-  from: 0,
-  to: 1000,
-  onprogress: function (value) {
-    console.log(value);
-  }
-});
-
-scrollAnimation.setFrom(100);
-scrollAnimation.setTo(2000);
+ScrollAnimation.play(0, 800, 1, 1);
 ```
